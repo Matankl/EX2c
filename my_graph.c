@@ -4,11 +4,12 @@
 int main() {
 
     // Declare a 10x10 matrixes
-    int matrix[10][10];
-    int dist[10][10];
+    int matrix[MatSize][MatSize];
+    int dist[MatSize][MatSize];
 
     // Declare input
     char input;
+    int Mi, Mj;
 
 
     //main loop: scan for input and call the appropriate function
@@ -25,7 +26,6 @@ int main() {
         // if B call hasPath (function 2)
         if (input == 'B')
         {
-            int Mi, Mj;
             scanf("%d %d", &Mi, &Mj);
             hasPath(dist, Mi, Mj);
         }
@@ -33,28 +33,15 @@ int main() {
         // if C call shortestPathLength (function 3)
         if (input == 'C')
         {
-            int Mi, Mj;
             scanf("%d %d", &Mi, &Mj);
             shortestPathLength(dist, Mi, Mj);
         }
 
 
-    } while (input != 'd' && input != 'EOF');
+    } while (input != 'D' && input != 'EOF');
     
 
-
-
-    // Display the matrix
-    printf("\nMatrix:\n");
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            printf("%d\t", matrix[i][j]);
-        }
-        printf("\n");
-    }
-
     return 0;
-
 
 }
 

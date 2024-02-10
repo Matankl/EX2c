@@ -3,16 +3,16 @@
 
 
 
-void buildMatrix(int matrix[10][10]) {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
+void buildMatrix(int matrix[MatSize][MatSize]) {
+    for (int i = 0; i < MatSize; i++) {
+        for (int j = 0; j < MatSize; j++) {
             // Get input from the user
             scanf("%d", &matrix[i][j]);
         }
     }
 }
 
-void hasPath(int dist[10][10], int Mi, int Mj){
+void hasPath(int dist[MatSize][MatSize], int Mi, int Mj){
     if (dist[Mi][Mj] == 0)
         printf("False");
     else
@@ -21,7 +21,7 @@ void hasPath(int dist[10][10], int Mi, int Mj){
 
 
 //print the shortest path length from Mi to Mj
-void shortestPathLength(int dist[10][10], int Mi, int Mj){
+void shortestPathLength(int dist[MatSize][MatSize], int Mi, int Mj){
     if (dist[Mi][Mj] == 0)
         printf("-1");                                                    // this may be a future problem if they want me to print an intiger
     else
@@ -34,18 +34,18 @@ void shortestPathLength(int dist[10][10], int Mi, int Mj){
 /*----------additional functions----------*/
 
 //make a shortest path matrix
-void MakeDist(int matrix[10][10], int dist[10][10]){
+void MakeDist(int matrix[MatSize][MatSize], int dist[MatSize][MatSize]){
     // copy the matrix to dist
     int i, j, k;
-    for (i = 0; i < 10; i++){
-        for (j = 0; j < 10; j++){
+    for (i = 0; i < MatSize; i++){
+        for (j = 0; j < MatSize; j++){
             dist[i][j] = matrix[i][j];
         }
     }
     //Floyd Warshall algorithm for shortest path to all nodes from all nodes
-    for (k = 0; k < 10; k++){
-        for (i = 0; i < 10; i++){
-            for (j = 0; j < 10; j++){
+    for (k = 0; k < MatSize; k++){
+        for (i = 0; i < MatSize; i++){
+            for (j = 0; j < MatSize; j++){
                 if (dist[i][k] + dist[k][j] < dist[i][j])
                     dist[i][j] = dist[i][k] + dist[k][j];
             }
