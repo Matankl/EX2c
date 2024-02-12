@@ -13,8 +13,10 @@ int main() {
         scanf("%c %d %d", &items[i], &price[i], &weight[i]);
     }
 
-    // Print the chosen items and the maximum value that can be put in the knapsack
+    // Declare a 2D array to store the maximum value of items that can be put in the knapsack
     int dp[ItemsSize + 1][MaxWeight + 1];
+
+    // Print the chosen items and the maximum value that can be put in the knapsack
     knapsack(price, weight, dp);
     printf("Maximum profit: %d\n", dp[ItemsSize][MaxWeight]);
     printSelectedItems(dp, weight);

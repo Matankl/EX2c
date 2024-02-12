@@ -8,20 +8,24 @@ int main() {
     int dist[MatSize][MatSize];
 
     // Declare input
-    int input; // Change data type from char to int
+    char input; 
     int Mi, Mj;
 
 
     //main loop: scan for input and call the appropriate function
     do
     {
-        scanf("%d", &input); // Change format specifier from %c to %d
+        if (scanf("%c", &input) == EOF) {
+            // Handle EOF if needed
+            break; // Exit the loop on EOF
+        }
 
         // if A call buildMatrix (function 1)
         if (input == 'A')
+        {
         buildMatrix(matrix);
         MakeDist(matrix, dist);
-        
+        }
         
         // if B call hasPath (function 2)
         if (input == 'B')

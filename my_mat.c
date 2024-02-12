@@ -14,18 +14,18 @@ void buildMatrix(int matrix[MatSize][MatSize]) {
 
 void hasPath(int dist[MatSize][MatSize], int Mi, int Mj){
     if (dist[Mi][Mj] == 0)
-        printf("False");
+        printf("False\n");
     else
-        printf("True");
+        printf("True\n");
 }
 
 
 //print the shortest path length from Mi to Mj
 void shortestPathLength(int dist[MatSize][MatSize], int Mi, int Mj){
     if (dist[Mi][Mj] == 0)
-        printf("-1");                                                    // this may be a future problem if they want me to print an intiger
+        printf("-1\n");                                                    // this may be a future problem if they want me to print an intiger
     else
-        printf("%d", dist[Mi][Mj]);
+        printf("%d\n", dist[Mi][Mj]);
 }
 
 
@@ -33,21 +33,26 @@ void shortestPathLength(int dist[MatSize][MatSize], int Mi, int Mj){
 
 /*----------additional functions for my_graph----------*/
 
-//make a shortest path matrix
+//make a shortest path matrix using Floyd Warshall algorithm
 void MakeDist(int matrix[MatSize][MatSize], int dist[MatSize][MatSize]){
     // copy the matrix to dist
-    int i, j, k;
-    for (i = 0; i < MatSize; i++){
-        for (j = 0; j < MatSize; j++){
+    for (int i = 0; i < MatSize; i++){
+        for (int j = 0; j < MatSize; j++){
             dist[i][j] = matrix[i][j];
         }
     }
     //Floyd Warshall algorithm for shortest path to all nodes from all nodes
-    for (k = 0; k < MatSize; k++){
-        for (i = 0; i < MatSize; i++){
-            for (j = 0; j < MatSize; j++){
-                if (dist[i][k] + dist[k][j] < dist[i][j])
+    for (int k = 0; k < MatSize; k++){
+        for (int i = 0; i < MatSize; i++){
+            for (int j = 0; j < MatSize; j++){
+                if (dist[i][j] == 0 && (i!=j) &&(dist[i][k] != 0 && dist[k][j] != 0))
                     dist[i][j] = dist[i][k] + dist[k][j];
+                else if (((dist[k][j] != 0) && (dist[i][k] != 0) && (dist[i][j] > (dist[i][k] + dist[k][j]))))
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                
+                
+                // if (dist[i][k] + dist[k][j] < dist[i][j])
+                //     dist[i][j] = dist[i][k] + dist[k][j];
             }
         }
     }
@@ -77,14 +82,22 @@ void knapsack(int price[ItemsSize], int weight[ItemsSize], int dp[ItemsSize + 1]
 
 void printSelectedItems(int dp[ItemsSize + 1][MaxWeight + 1], int weight[ItemsSize]) {
     int i = ItemsSize, w = MaxWeight;
+    //init int
+    int selected[ItemsSize];
     printf("Selected items: ");
     while (i > 0 && w > 0) {
         if (dp[i][w] != dp[i - 1][w]) {
-            printf("%c ", 'A' + i - 1);
+            selected[i - 1] = 1;
             w -= weight[i - 1];
             i--;
         } else {
+            selected[i - 1] = 0;
             i--;
+        }
+    }
+    for (int i = 0; i < ItemsSize; i++) {
+        if (selected[i] == 1) {
+            printf("%c ", i + 'a');
         }
     }
     printf("\n");
