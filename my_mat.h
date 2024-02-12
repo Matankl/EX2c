@@ -1,4 +1,8 @@
+// This file contains the declaration of the functions that will be used in the main files (my_graph.c and my_Knapsack.c)
 
+
+#ifndef KNAPSACK_LIB_H
+#define KNAPSACK_LIB_H
 
 //Define variables
 #define MatSize 10
@@ -24,5 +28,15 @@ void shortestPathLength(int[MatSize][MatSize], int, int);
 void MakeDist(int[MatSize][MatSize], int[MatSize][MatSize]);
 
 
+/*----------Knapsack functions----------*/
 
+// will fill the dp matrix with the maximum value of items that can be put in the knapsack
+void knapsack(int price[ItemsSize], int weight[ItemsSize], int dp[ItemsSize + 1][MaxWeight + 1]);
+
+//
+void printSelectedItems(int dp[ItemsSize + 1][MaxWeight + 1], int weight[ItemsSize]);
+
+int max(int, int);
+
+#endif  // KNAPSACK_LIB_H
 

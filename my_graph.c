@@ -8,14 +8,14 @@ int main() {
     int dist[MatSize][MatSize];
 
     // Declare input
-    char input;
+    int input; // Change data type from char to int
     int Mi, Mj;
 
 
     //main loop: scan for input and call the appropriate function
     do
     {
-        scanf("%c", &input);
+        scanf("%d", &input); // Change format specifier from %c to %d
 
         // if A call buildMatrix (function 1)
         if (input == 'A')
@@ -38,7 +38,7 @@ int main() {
         }
 
 
-    } while (input != 'D' && input != 'EOF');
+    } while (input != 'D');         //might want to chack EOF
     
 
     return 0;
@@ -47,8 +47,6 @@ int main() {
 
 /* ---------------------------- possible future bugs ----------------------------
 
-in the main loop, there may be a problem with the input, as the input is a char, and the scanf is for an int,
-this may cause a problem, and the program may not work as intended
 
 
 

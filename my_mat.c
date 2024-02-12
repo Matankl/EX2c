@@ -31,7 +31,7 @@ void shortestPathLength(int dist[MatSize][MatSize], int Mi, int Mj){
 
 
 
-/*----------additional functions----------*/
+/*----------additional functions for my_graph----------*/
 
 //make a shortest path matrix
 void MakeDist(int matrix[MatSize][MatSize], int dist[MatSize][MatSize]){
@@ -51,5 +51,51 @@ void MakeDist(int matrix[MatSize][MatSize], int dist[MatSize][MatSize]){
             }
         }
     }
-    
 }
+
+
+
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+
+
+void knapsack(int price[ItemsSize], int weight[ItemsSize], int dp[ItemsSize + 1][MaxWeight + 1]) {
+    for (int i = 0; i <= ItemsSize; i++) {
+        for (int w = 0; w <= MaxWeight; w++) {
+            if (i == 0 || w == 0) {
+                dp[i][w] = 0;
+            } else if (weight[i - 1] <= w) {
+                dp[i][w] = max(price[i - 1] + dp[i - 1][w - weight[i - 1]], dp[i - 1][w]);
+            } else {
+                dp[i][w] = dp[i - 1][w];
+            }
+        }
+    }
+}
+
+void printSelectedItems(int dp[ItemsSize + 1][MaxWeight + 1], int weight[ItemsSize]) {
+    int i = ItemsSize, w = MaxWeight;
+    printf("Selected items: ");
+    while (i > 0 && w > 0) {
+        if (dp[i][w] != dp[i - 1][w]) {
+            printf("%c ", 'A' + i - 1);
+            w -= weight[i - 1];
+            i--;
+        } else {
+            i--;
+        }
+    }
+    printf("\n");
+}
+
+
+
+
+
+
+
+
+
+
