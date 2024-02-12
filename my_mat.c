@@ -14,9 +14,9 @@ void buildMatrix(int matrix[MatSize][MatSize]) {
 
 void hasPath(int dist[MatSize][MatSize], int Mi, int Mj){
     if (dist[Mi][Mj] == 0)
-        printf("False\n");
+        printf("False \n");
     else
-        printf("True\n");
+        printf("True \n");
 }
 
 
