@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -g
 
 
 # Default target
-all: graph_my Knapsack_my
+all: my_graph my_Knapsack
 
 my_Knapsack: my_Knapsack.o libmy_math.a
 	$(CC) $(CFLAGS) -o $@ $^ 
@@ -38,5 +38,5 @@ my_mat.o: my_mat.c my_mat.h
 
 # Clean up object files and the target executable
 clean:
-	rm *.o *.so *.a graph_my Knapsack_my
+	rm *.o *.so *.a my_graph my_Knapsack
 
