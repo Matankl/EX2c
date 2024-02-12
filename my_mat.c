@@ -64,7 +64,7 @@ int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
-
+/*---------- functions for my_Knapsack----------*/
 
 void knapsack(int price[ItemsSize], int weight[ItemsSize], int dp[ItemsSize + 1][MaxWeight + 1]) {
     for (int i = 0; i <= ItemsSize; i++) {

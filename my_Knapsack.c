@@ -9,10 +9,22 @@ int main() {
     int weight[ItemsSize];
 
     // get input from the user for the items and their price and weight
+    // for (int i = 0; i < ItemsSize; i++) {
+    //     scanf("%c", &items[i]);
+    //     scanf("%d", &price[i]);
+    //     scanf("%d", &weight[i]);
+        
+    // }
     for (int i = 0; i < ItemsSize; i++) {
-        scanf("%c %d %d", &items[i], &price[i], &weight[i]);
-    }
+    scanf(" %c %d %d", &items[i], &price[i], &weight[i]);
+}
 
+      for (int i = 0; i < ItemsSize; i++)
+      {
+        printf("%c \n", items[i]);
+        printf("%d \n",  price[i]);
+        printf("%d \n", weight[i]);      }
+        
     // Declare a 2D array to store the maximum value of items that can be put in the knapsack
     int dp[ItemsSize + 1][MaxWeight + 1];
 
