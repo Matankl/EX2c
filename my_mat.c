@@ -100,7 +100,7 @@ void printSelectedItems(int dp[ItemsSize + 1][MaxWeight + 1], int weight[ItemsSi
             printf(" %c", i + 'a');
         }
     }
-    printf("\n");
+   // printf("\n");
 }
 
 
