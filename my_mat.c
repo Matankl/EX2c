@@ -14,9 +14,9 @@ void buildMatrix(int matrix[MatSize][MatSize]) {
 
 void hasPath(int dist[MatSize][MatSize], int Mi, int Mj){
     if (dist[Mi][Mj] == 0)
-        printf("False \n");
+        printf("False\n");
     else
-        printf("True \n");
+        printf("True\n");
 }
 
 
@@ -84,7 +84,7 @@ void printSelectedItems(int dp[ItemsSize + 1][MaxWeight + 1], int weight[ItemsSi
     int i = ItemsSize, w = MaxWeight;
     //init int
     int selected[ItemsSize];
-    printf("Selected items: ");
+    printf("Selected items:");
     while (i > 0 && w > 0) {
         if (dp[i][w] != dp[i - 1][w]) {
             selected[i - 1] = 1;
@@ -97,7 +97,7 @@ void printSelectedItems(int dp[ItemsSize + 1][MaxWeight + 1], int weight[ItemsSi
     }
     for (int i = 0; i < ItemsSize; i++) {
         if (selected[i] == 1) {
-            printf("%c ", i + 'a');
+            printf(" %c", i + 'a');
         }
     }
     printf("\n");

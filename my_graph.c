@@ -15,8 +15,7 @@ int main() {
     //main loop: scan for input and call the appropriate function
     do
     {
-        if (scanf("%c", &input) == EOF) {
-            // Handle EOF if needed
+        if (scanf(" %c", &input) == EOF) {
             break; // Exit the loop on EOF
         }
 

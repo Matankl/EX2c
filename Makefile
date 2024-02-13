@@ -38,5 +38,5 @@ my_mat.o: my_mat.c my_mat.h
 
 # Clean up object files and the target executable
 clean:
-	rm *.o *.so *.a my_graph my_Knapsack
+	rm *.o *.a my_graph my_Knapsack
 
